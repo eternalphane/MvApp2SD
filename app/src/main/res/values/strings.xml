@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MvApp2SD</string>
+    <string name="lbl_app">"Lable: "</string>
+    <string name="lbl_pkg">"Package: "</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_select">Select...</string>
     <string name="action_settings">Settings</string>
 </resources>

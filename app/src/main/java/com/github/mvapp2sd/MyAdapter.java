@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,11 +19,12 @@ import java.util.List;
  */
 public class MyAdapter extends BaseAdapter {
     private List<MyAppInfo> AppInfoList;
-    LayoutInflater inflater=null;
+    LayoutInflater inflater = null;
+    public boolean flag_cbVisibility=false;
 
-    public MyAdapter(Context context,List<MyAppInfo> appInfoList){
-        inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        AppInfoList=appInfoList;
+    public MyAdapter(Context context, List<MyAppInfo> appInfoList) {
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        AppInfoList = appInfoList;
     }
 
     @Override
@@ -42,33 +44,35 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view=null;
-        ViewHolder holder=null;
-        if(convertView==null||convertView.getTag()==null){
-            view=inflater.inflate(R.layout.my_listitem,null);
-            holder=new ViewHolder(view);
+        View view = null;
+        ViewHolder holder = null;
+        if (convertView == null || convertView.getTag() == null) {
+            view = inflater.inflate(R.layout.my_listitem, null);
+            holder = new ViewHolder(view);
             view.setTag(holder);
+        } else {
+            view = convertView;
+            holder = (ViewHolder) convertView.getTag();
         }
-        else{
-            view=convertView;
-            holder=(ViewHolder)convertView.getTag();
-        }
-        MyAppInfo appInfo=(MyAppInfo)getItem(position);
+        MyAppInfo appInfo = (MyAppInfo) getItem(position);
         holder.Icon.setImageDrawable(appInfo.GetIcon());
         holder.AppName.setText(appInfo.GetAppName());
         holder.PackageName.setText(appInfo.GetPackageName());
+        holder.Check.setVisibility(flag_cbVisibility?CheckBox.VISIBLE:CheckBox.GONE);
         return view;
     }
 
-    class ViewHolder{
+    class ViewHolder {
         ImageView Icon;
         TextView AppName;
         TextView PackageName;
+        CheckBox Check;
 
-        public ViewHolder(View view){
-            this.Icon=(ImageView)view.findViewById(R.id.item_icon);
-            this.AppName=(TextView)view.findViewById(R.id.item_app_name);
-            this.PackageName=(TextView)view.findViewById(R.id.item_package_name);
+        public ViewHolder(View view) {
+            this.Icon = (ImageView) view.findViewById(R.id.item_icon);
+            this.AppName = (TextView) view.findViewById(R.id.item_app_name);
+            this.PackageName = (TextView) view.findViewById(R.id.item_package_name);
+            this.Check=(CheckBox)view.findViewById(R.id.item_check);
         }
     }
 }
