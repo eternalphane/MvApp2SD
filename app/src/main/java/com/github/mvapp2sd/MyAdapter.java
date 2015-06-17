@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ import java.util.List;
 public class MyAdapter extends BaseAdapter {
     private List<MyAppInfo> AppInfoList;
     LayoutInflater inflater = null;
-    public boolean flag_cbVisibility=false;
+    public boolean flag_cbVisibility = false;
 
     public MyAdapter(Context context, List<MyAppInfo> appInfoList) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -43,7 +44,7 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = null;
         ViewHolder holder = null;
         if (convertView == null || convertView.getTag() == null) {
@@ -58,7 +59,17 @@ public class MyAdapter extends BaseAdapter {
         holder.Icon.setImageDrawable(appInfo.GetIcon());
         holder.AppName.setText(appInfo.GetAppName());
         holder.PackageName.setText(appInfo.GetPackageName());
-        holder.Check.setVisibility(flag_cbVisibility?CheckBox.VISIBLE:CheckBox.GONE);
+        holder.Check.setVisibility(flag_cbVisibility ? CheckBox.VISIBLE : CheckBox.GONE);
+        holder.Check.setChecked(flag_cbVisibility ? ((MyAppInfo) getItem(position)).GetChecked() : false);
+        holder.Check.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((MyAppInfo) getItem(position)).SetChecked(((CheckBox) v).isChecked());
+                        System.out.println(Integer.toString(position) + ": " + Boolean.toString(((CheckBox) v).isChecked()));
+                    }
+                }
+        );
         return view;
     }
 
@@ -72,7 +83,7 @@ public class MyAdapter extends BaseAdapter {
             this.Icon = (ImageView) view.findViewById(R.id.item_icon);
             this.AppName = (TextView) view.findViewById(R.id.item_app_name);
             this.PackageName = (TextView) view.findViewById(R.id.item_package_name);
-            this.Check=(CheckBox)view.findViewById(R.id.item_check);
+            this.Check = (CheckBox) view.findViewById(R.id.item_check);
         }
     }
 }

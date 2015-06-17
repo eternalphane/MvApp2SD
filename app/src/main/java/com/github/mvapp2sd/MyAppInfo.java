@@ -1,9 +1,7 @@
 package com.github.mvapp2sd;
 
 import android.graphics.drawable.Drawable;
-import android.widget.CheckBox;
 
-import java.text.CollationElementIterator;
 import java.text.Collator;
 import java.util.Locale;
 
@@ -15,9 +13,10 @@ public class MyAppInfo implements Comparable {
     private String AppName;
     private String PackageName;
     private Drawable Icon;
-    private CheckBox Check;
+    private boolean IsChecked;
 
     public MyAppInfo() {
+        IsChecked = false;
     }
 
     public String GetAppName() {
@@ -32,8 +31,8 @@ public class MyAppInfo implements Comparable {
         return Icon;
     }
 
-    public CheckBox GetCheck() {
-        return Check;
+    public boolean GetChecked() {
+        return IsChecked;
     }
 
     public void SetAppName(String AppName) {
@@ -48,8 +47,8 @@ public class MyAppInfo implements Comparable {
         this.Icon = Icon;
     }
 
-    public void SetCheck(CheckBox Check) {
-        this.Check = Check;
+    public void SetChecked(boolean IsChecked) {
+        this.IsChecked = IsChecked;
     }
 
     public static boolean IsChinese(String str) {
