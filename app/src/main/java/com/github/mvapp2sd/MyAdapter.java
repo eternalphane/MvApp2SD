@@ -73,7 +73,7 @@ public class MyAdapter extends BaseAdapter {
         return view;
     }
 
-    class ViewHolder {
+    private class ViewHolder {
         ImageView Icon;
         TextView AppName;
         TextView PackageName;

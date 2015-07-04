@@ -1,8 +1,19 @@
 <resources>
+    <!--android_manifest-->
     <string name="app_name">MvApp2SD</string>
-    <string name="lbl_app">"Lable: "</string>
-    <string name="lbl_pkg">"Package: "</string>
+    <string name="title_settings">Settings</string>
+
+    <!--my_listitem-->
+    <string name="label_app">"Lable: "</string>
+    <string name="label_pkg">"Package: "</string>
+
+    <!--menu_main-->
     <string name="action_refresh">Refresh</string>
     <string name="action_select">Select...</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Settings...</string>
+
+    <!--activity_settings-->
+    <string name="set_showsys">Show System Apps(Not Recommended)</string>
+    <string name="set_linkdata">Link /data/data</string>
+    <string name="set_linkcache">Link /data/dalvik-cache</string>
 </resources>

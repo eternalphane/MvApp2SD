@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="60dp"
     android:gravity="center_vertical">
     <ImageView
@@ -14,7 +14,7 @@
         android:orientation="horizontal"
 		android:gravity="center_vertical"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/item_check"
         android:layout_toEndOf="@+id/item_icon"
@@ -24,37 +24,39 @@
             android:orientation="vertical"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent">
+            android:layout_height="match_parent">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lbl_app"/>
+                android:text="@string/label_app"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lbl_pkg"
+                android:text="@string/label_pkg"
                 android:layout_marginTop="4dp"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:id="@+id/item_app_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"/>
+                android:marqueeRepeatLimit="marquee_forever"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/item_package_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:singleLine="true"
                 android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"/>
+                android:marqueeRepeatLimit="marquee_forever"
+                android:textColor="@color/grey_2"/>
         </LinearLayout>
     </LinearLayout>
     <CheckBox
