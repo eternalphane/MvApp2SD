@@ -5,14 +5,32 @@
     <item
         android:id="@+id/action_refresh"
         android:title="@string/action_refresh"
-        android:orderInCategory="1"/>
+        android:orderInCategory="1"
+        android:visible="true"/>
     <item
         android:id="@+id/action_select"
         android:title="@string/action_select"
-        android:orderInCategory="2"/>
+        android:orderInCategory="2"
+        android:visible="true"/>
+    <item
+        android:id="@+id/action_link"
+        android:title="@string/action_link"
+        android:orderInCategory="3"
+        android:visible="false"/>
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
+        android:orderInCategory="91"
+        android:showAsAction="never"
+        android:visible="true"/>
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/action_about"
+        android:orderInCategory="99"
+        android:visible="true"/>
+    <item
+        android:id="@+id/action_quit"
+        android:title="@string/action_quit"
         android:orderInCategory="100"
-        android:showAsAction="never"/>
+        android:visible="true"/>
 </menu>

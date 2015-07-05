@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.mvapp2sd" >
-
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.mvapp2sd">
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -21,6 +21,14 @@
             android:label="@string/title_settings">
             <intent-filter>
                 <action android:name="com.github.mvapp2sd.settings" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity_AppInfo"
+            android:label="@string/title_appinfo">
+            <intent-filter>
+                <action android:name="com.github.mvapp2sd.appinfo" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

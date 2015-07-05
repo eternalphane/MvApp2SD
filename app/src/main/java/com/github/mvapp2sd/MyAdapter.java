@@ -6,11 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -21,11 +18,12 @@ import java.util.List;
 public class MyAdapter extends BaseAdapter {
     private List<MyAppInfo> AppInfoList;
     LayoutInflater inflater = null;
-    public boolean flag_cbVisibility = false;
+    public boolean flag_cbVisibility;
 
     public MyAdapter(Context context, List<MyAppInfo> appInfoList) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         AppInfoList = appInfoList;
+        flag_cbVisibility = false;
     }
 
     @Override
@@ -45,8 +43,8 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View view = null;
-        ViewHolder holder = null;
+        View view;
+        ViewHolder holder;
         if (convertView == null || convertView.getTag() == null) {
             view = inflater.inflate(R.layout.my_listitem, null);
             holder = new ViewHolder(view);
@@ -60,7 +58,7 @@ public class MyAdapter extends BaseAdapter {
         holder.AppName.setText(appInfo.GetAppName());
         holder.PackageName.setText(appInfo.GetPackageName());
         holder.Check.setVisibility(flag_cbVisibility ? CheckBox.VISIBLE : CheckBox.GONE);
-        holder.Check.setChecked(flag_cbVisibility ? ((MyAppInfo) getItem(position)).GetChecked() : false);
+        holder.Check.setChecked(flag_cbVisibility && ((MyAppInfo) getItem(position)).GetChecked());
         holder.Check.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

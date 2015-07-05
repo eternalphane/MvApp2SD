@@ -9,6 +9,7 @@ import android.app.Application;
 public class MyApplication extends Application {
     private int set_num;
     private boolean set_bool[];
+    private MyAppInfo AppInfo;
 
     @Override
     public void onCreate() {
@@ -25,16 +26,15 @@ public class MyApplication extends Application {
     }
 
     public boolean Get_set_bool(int index) {
-        if (index < set_num) {
-            return set_bool[index];
-        }
-        return false;
+        return (index < set_num && set_bool[index]);
     }
 
-    public void Set_set_bool(int index, boolean bool) {
-        if (index < set_num) {
-            set_bool[index] = bool;
-        }
+    public MyAppInfo GetAppInfo() {
+        return AppInfo;
+    }
+
+    public void SetAppInfo(MyAppInfo AppInfo) {
+        this.AppInfo = AppInfo;
     }
 
     public void Toggle_set_bool(int index) {

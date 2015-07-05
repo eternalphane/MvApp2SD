@@ -22,9 +22,9 @@ public class Activity_Settings extends Activity {
         set_id[1] = R.id.set_linkdata;
         set_id[2] = R.id.set_linkcache;
         for (int i = 0; i < app.Get_set_num(); i++) {
-            ((CheckedTextView) findViewById(set_id[i])).setTag(i);
+            findViewById(set_id[i]).setTag(i);
             ((CheckedTextView) findViewById(set_id[i])).setChecked(app.Get_set_bool(i));
-            ((CheckedTextView) findViewById(set_id[i])).setOnClickListener(
+            findViewById(set_id[i]).setOnClickListener(
                     new CheckedTextView.OnClickListener() {
                         @Override
                         public void onClick(View v) {
